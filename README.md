@@ -1,2 +1,2 @@
 # willyousurvive.github.io
-Text game about two choices and survival
+Text game about two choices and survival plan B
