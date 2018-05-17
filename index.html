@@ -5,13 +5,15 @@
 <title>
 	Will you survive?
 </title>
-
+<!-- start of the script (where most code will be) -->
 <script type="text/javascript">
+// start of first pathway
 function storyone(){
 	document.getElementById("div1").innerHTML = " You wake up in a room and on the wall there are two doors, one with a plus symbol on it and one with a crucifix. Wich one do you choose?";
+	
 		
 }
-
+// start of second pathway
 function storytwo(){
 	document.getElementById("div1").innerHTML = " You wake up in your bed but your family is gone. You look for them but they are nowhere to be found. Walking out of your house you see a zombie walking right towards you. Do you try and kill it or do you run?";
 }
@@ -54,11 +56,11 @@ Will You Survive? Choose Your Path
 
 
 <div id="div2" class="fullsize" >
-	
+	<!-- first button, activates the first pathway -->
 	<button id="story1" onclick=storyone()>
 		The Room
 	</button>
-
+	<!-- second button, activates the second pathway -->
 	<button id="story2" onclick=storytwo()>
 		The Apocalypse
 	</button>		
