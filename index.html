@@ -8,15 +8,44 @@
 <!-- start of the script (where most code will be) -->
 <script type="text/javascript">
 // start of first pathway
-function storyone(){
-	document.getElementById("div1").innerHTML = " You wake up in a room and on the wall there are two doors, one with a plus symbol on it and one with a crucifix. Wich one do you choose?";
-	
-		
-}
-// start of second pathway
-function storytwo(){
-	document.getElementById("div1").innerHTML = " You wake up in your bed but your family is gone. You look for them but they are nowhere to be found. Walking out of your house you see a zombie walking right towards you. Do you try and kill it or do you run?";
-}
+
+clickCount= 0 
+
+startingHealth = 30;
+
+
+// lists can be single dimesion, we need one that is two dimensions
+
+// start of list data
+questionsList = [
+
+
+["You wake up. There are two doors, with a symbol on each, Which one do you choose?", "red cross sign","crucifix", 1, 0 ]
+
+
+["A stanger offers you two pills", "red pill","blue pill", 2, -4 ]
+
+
+
+];
+// end of list data
+
+
+
+
+function askNextQuestion(){
+	console.log("click count: " + clickCount);
+
+
+	var tempId = document.getElementById("outputArea");
+	// fetch the id
+
+
+    // print a new question into the div     tempId.innerHTML =
+    console.log(questionsList[0][0]); 
+
+    clickCount = clickCount + 1; }
+
 
 // word game with pathways
 // starts out an empty div 
@@ -50,20 +79,18 @@ function storytwo(){
 
 <body>
 
-<div id="div1" class="fullsize" >
+<div id="outputArea" class="fullsize" >
 Will You Survive? Choose Your Path 
 </div>
 
 
 <div id="div2" class="fullsize" >
 	<!-- first button, activates the first pathway -->
-	<button id="story1" onclick=storyone()>
-		The Room
+	<button id="story1" onclick=askNextQuestion()>
+		next question
 	</button>
-	<!-- second button, activates the second pathway -->
-	<button id="story2" onclick=storytwo()>
-		The Apocalypse
-	</button>		
+
+
 </div>	
 <!-- this will be the main menu where the user will choose their story -->
 
