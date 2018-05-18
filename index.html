@@ -20,12 +20,14 @@ startingHealth = 30;
 questionsList = [
 
 
-["You wake up. There are two doors, with a symbol on each, Which one do you choose?", "red cross sign","crucifix", 1, 0 ]
+["You wake up. There are two doors, with a symbol on each, Which one do you choose?", "red cross sign","crucifix", 1, 0 ],
 
 
-["A stanger offers you two pills", "red pill","blue pill", 2, -4 ]
+["A stanger offers you two pills", "red pill","blue pill", 2, -4 ],
 
 
+["q3", "dog","cat", 1, -1 ],
+// each line must end in comma, that was the error we had in tutoral, signed, Mr. Rowe, fixed
 
 ];
 // end of list data
@@ -39,10 +41,23 @@ function askNextQuestion(){
 
 	var tempId = document.getElementById("outputArea");
 	// fetch the id
-
-
     // print a new question into the div     tempId.innerHTML =
-    console.log(questionsList[0][0]); 
+    tempId.innerHTML = questionsList[clickCount][0]; 
+
+
+	var tempId = document.getElementById("choicea");
+	// fetch the id
+    // print a new question into the div     tempId.innerHTML =
+    tempId.innerHTML = questionsList[clickCount][1];
+
+
+	var tempId = document.getElementById("choiceb");
+	// fetch the id
+    // print a new question into the div     tempId.innerHTML =
+    tempId.innerHTML = questionsList[clickCount][2];
+
+
+
 
     clickCount = clickCount + 1; }
 
@@ -80,8 +95,17 @@ function askNextQuestion(){
 <body>
 
 <div id="outputArea" class="fullsize" >
-Will You Survive? Choose Your Path 
+Ready for a test?
 </div>
+
+
+<div id="choicea" class="fullsize" >
+</div>
+
+
+<div id="choiceb" class="fullsize" >
+</div>
+
 
 
 <div id="div2" class="fullsize" >
