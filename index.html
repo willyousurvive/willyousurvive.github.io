@@ -8,25 +8,38 @@
 <!-- start of the script (where most code will be) -->
 <script type="text/javascript">
 // start of first pathway
+// word game with pathways
+// starts out an empty div 
+// questions you have to answer one of two choices a)  do this x    b)  do y 
+// depending on that action you will what??
+// this game will be a game where you will put the user in a couple different scenarios where they will have to choose 
+// their path and it will determine their fate (if they survive or not) 
 
-clickCount= 0 
 
-startingHealth = 30;
+
+
+clickCount= 0 ;
+
+maxQuestions = 4 ;
+
+currentHealth = 20;
 
 
 // lists can be single dimesion, we need one that is two dimensions
 
 // start of list data
+
+// ["question","choiceA","ChoiceB","correct answer(0,1)","penalty"]
+
+
+
 questionsList = [
 
+["You wake up. There are two doors, with a symbol on each, which one do you choose?", "red cross sign","skull", 1, -1 ],
 
-["You wake up. There are two doors, with a symbol on each, Which one do you choose?", "red cross sign","crucifix", 1, 0 ],
+["You and a dog are starving and you have a can of beans, do you: ", "eat it all","share with the dog", 2, -4 ],
 
-
-["A stanger offers you two pills", "red pill","blue pill", 2, -4 ],
-
-
-["q3", "dog","cat", 1, -1 ],
+["Which is the better animal", "tucan","pelican", 2, -1 ],
 // each line must end in comma, that was the error we had in tutoral, signed, Mr. Rowe, fixed
 
 ];
@@ -37,53 +50,43 @@ questionsList = [
 
 function askNextQuestion(){
 	console.log("click count: " + clickCount);
-
-
-	var tempId = document.getElementById("outputArea");
+	var tempId = document.getElementById("questionArea");
 	// fetch the id
     // print a new question into the div     tempId.innerHTML =
     tempId.innerHTML = questionsList[clickCount][0]; 
-
-
-	var tempId = document.getElementById("choicea");
+	var tempId = document.getElementById("choice0");
 	// fetch the id
     // print a new question into the div     tempId.innerHTML =
-    tempId.innerHTML = questionsList[clickCount][1];
-
-
-	var tempId = document.getElementById("choiceb");
+    tempId.innerHTML = questionsList[clickCount][1];                          
+	var tempId = document.getElementById("choice1");
 	// fetch the id
     // print a new question into the div     tempId.innerHTML =
     tempId.innerHTML = questionsList[clickCount][2];
+   // create an if statement, leave points alone, or your remove points if wrong answer
+    // increment count for the next question
+    clickCount = clickCount + 1; 
+} // close function next question
+
+
+
+// do if statemwents  theirchoice will be zero or one
+
+function choiceMade(theirChoice){
+
+
+	currentHealth = currentHealth - 1;
+	console.log("your heath is now: " + currentHealth)
+
+
+	if (currentHealth == 0){
+		alert("Game Over");
+	}
+} // end of function choice made
 
 
 
 
-    clickCount = clickCount + 1; }
 
-
-// word game with pathways
-// starts out an empty div 
-// questions you have to answer one of two choices a)  do this x    b)  do y 
-// depending on that action you will what??
-
-
-
-
-// this game will be a game where you will put the user in a couple different scenarios where they will have to choose 
-// their path and it will determine their fate (if they survive or not) 
-
-
-
-
-
-
-// middle
-
-
-
-
-// at the end ??
 
 
 
@@ -94,16 +97,16 @@ function askNextQuestion(){
 
 <body>
 
-<div id="outputArea" class="fullsize" >
+<div id="questionArea" class="fullsize" >
 Ready for a test?
 </div>
 
 
-<div id="choicea" class="fullsize" >
+<div id="choice0" class="fullsize" onclick=choiceMade(0) >
 </div>
 
 
-<div id="choiceb" class="fullsize" >
+<div id="choice1" class="fullsize" onclick=choiceMade(1) >
 </div>
 
 
